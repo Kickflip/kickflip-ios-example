@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BA8413B7CA949B0A7A2AF9F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C3B6210219445A92F3D20B /* libPods.a */; };
+		D945ADA4189853A80026F697 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99912CE18984D3F00BFCBA4 /* Foundation.framework */; };
+		D945ADA6189853A80026F697 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945ADA5189853A80026F697 /* CoreGraphics.framework */; };
+		D945ADA7189853A80026F697 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99912DF18984D3F00BFCBA4 /* UIKit.framework */; };
+		D945ADD7189854000026F697 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D945ADCF189854000026F697 /* InfoPlist.strings */; };
+		D945ADD8189854000026F697 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D945ADD1189854000026F697 /* Images.xcassets */; };
+		D945ADD9189854000026F697 /* KFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D945ADD3189854000026F697 /* KFAppDelegate.m */; };
+		D945ADDB189854000026F697 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D945ADD6189854000026F697 /* main.m */; };
+		D945AF411898635A0026F697 /* KFDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D945AF401898635A0026F697 /* KFDemoViewController.m */; };
+		D945AF571898724A0026F697 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF531898722B0026F697 /* AVFoundation.framework */; };
+		D945AF601898729F0026F697 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF5F1898729F0026F697 /* CoreMedia.framework */; };
+		D945AF62189872A80026F697 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF61189872A80026F697 /* CoreAudio.framework */; };
+		D945AF64189872C60026F697 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF63189872C60026F697 /* AudioToolbox.framework */; };
+		D945AF68189873900026F697 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF67189873900026F697 /* libc++.dylib */; };
+		D945AF6C189874B80026F697 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF6A189874AB0026F697 /* SystemConfiguration.framework */; };
+		D945AF6E189874C80026F697 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF6D189874C70026F697 /* MobileCoreServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		19C1092F78C841ABBD1DB212 /* libPods-KFDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KFDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49767AF7DBF441F8BD1E00E7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D5C3B6210219445A92F3D20B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D945ADA3189853A80026F697 /* KFDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D945ADA5189853A80026F697 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D945ADD0189854000026F697 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D945ADD1189854000026F697 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D945ADD2189854000026F697 /* KFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFAppDelegate.h; sourceTree = "<group>"; };
+		D945ADD3189854000026F697 /* KFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFAppDelegate.m; sourceTree = "<group>"; };
+		D945ADD4189854000026F697 /* KFDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KFDemo-Info.plist"; sourceTree = "<group>"; };
+		D945ADD5189854000026F697 /* KFDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KFDemo-Prefix.pch"; sourceTree = "<group>"; };
+		D945ADD6189854000026F697 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D945AF3418985A5E0026F697 /* KFSecrets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFSecrets.h; sourceTree = "<group>"; };
+		D945AF3F1898635A0026F697 /* KFDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFDemoViewController.h; sourceTree = "<group>"; };
+		D945AF401898635A0026F697 /* KFDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFDemoViewController.m; sourceTree = "<group>"; };
+		D945AF531898722B0026F697 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D945AF55189872360026F697 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D945AF591898725B0026F697 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
+		D945AF5B189872680026F697 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		D945AF5F1898729F0026F697 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D945AF61189872A80026F697 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		D945AF63189872C60026F697 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D945AF67189873900026F697 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		D945AF6A189874AB0026F697 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D945AF6D189874C70026F697 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D99912CE18984D3F00BFCBA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D99912DC18984D3F00BFCBA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D99912DF18984D3F00BFCBA4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D945ADA0189853A80026F697 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D945AF6E189874C80026F697 /* MobileCoreServices.framework in Frameworks */,
+				D945AF6C189874B80026F697 /* SystemConfiguration.framework in Frameworks */,
+				D945AF68189873900026F697 /* libc++.dylib in Frameworks */,
+				D945AF64189872C60026F697 /* AudioToolbox.framework in Frameworks */,
+				D945AF62189872A80026F697 /* CoreAudio.framework in Frameworks */,
+				D945AF601898729F0026F697 /* CoreMedia.framework in Frameworks */,
+				D945ADA6189853A80026F697 /* CoreGraphics.framework in Frameworks */,
+				D945AF571898724A0026F697 /* AVFoundation.framework in Frameworks */,
+				D945ADA7189853A80026F697 /* UIKit.framework in Frameworks */,
+				D945ADA4189853A80026F697 /* Foundation.framework in Frameworks */,
+				4BA8413B7CA949B0A7A2AF9F /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D945ADCE189854000026F697 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				D945AF3418985A5E0026F697 /* KFSecrets.h */,
+				D945ADCF189854000026F697 /* InfoPlist.strings */,
+				D945ADD1189854000026F697 /* Images.xcassets */,
+				D945ADD2189854000026F697 /* KFAppDelegate.h */,
+				D945ADD3189854000026F697 /* KFAppDelegate.m */,
+				D945AF3F1898635A0026F697 /* KFDemoViewController.h */,
+				D945AF401898635A0026F697 /* KFDemoViewController.m */,
+				D945ADD4189854000026F697 /* KFDemo-Info.plist */,
+				D945ADD5189854000026F697 /* KFDemo-Prefix.pch */,
+				D945ADD6189854000026F697 /* main.m */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		D99912C218984D3F00BFCBA4 = {
+			isa = PBXGroup;
+			children = (
+				D945ADCE189854000026F697 /* Example */,
+				D99912CD18984D3F00BFCBA4 /* Frameworks */,
+				D99912CC18984D3F00BFCBA4 /* Products */,
+				49767AF7DBF441F8BD1E00E7 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		D99912CC18984D3F00BFCBA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D945ADA3189853A80026F697 /* KFDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D99912CD18984D3F00BFCBA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D945AF6D189874C70026F697 /* MobileCoreServices.framework */,
+				D945AF6A189874AB0026F697 /* SystemConfiguration.framework */,
+				D945AF67189873900026F697 /* libc++.dylib */,
+				D945AF63189872C60026F697 /* AudioToolbox.framework */,
+				D945AF61189872A80026F697 /* CoreAudio.framework */,
+				D945AF5F1898729F0026F697 /* CoreMedia.framework */,
+				D945AF5B189872680026F697 /* libiconv.dylib */,
+				D945AF591898725B0026F697 /* libbz2.dylib */,
+				D945AF55189872360026F697 /* libz.dylib */,
+				D945AF531898722B0026F697 /* AVFoundation.framework */,
+				D99912CE18984D3F00BFCBA4 /* Foundation.framework */,
+				D99912DC18984D3F00BFCBA4 /* XCTest.framework */,
+				D99912DF18984D3F00BFCBA4 /* UIKit.framework */,
+				D945ADA5189853A80026F697 /* CoreGraphics.framework */,
+				19C1092F78C841ABBD1DB212 /* libPods-KFDemo.a */,
+				D5C3B6210219445A92F3D20B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D945ADA2189853A80026F697 /* KFDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D945ADC8189853A90026F697 /* Build configuration list for PBXNativeTarget "KFDemo" */;
+			buildPhases = (
+				FD523A8DB5414023AF7AF9A6 /* Check Pods Manifest.lock */,
+				D945AD9F189853A80026F697 /* Sources */,
+				D945ADA0189853A80026F697 /* Frameworks */,
+				D945ADA1189853A80026F697 /* Resources */,
+				ED2B2FA4594E4D2FB926AF71 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KFDemo;
+			productName = KFDemo;
+			productReference = D945ADA3189853A80026F697 /* KFDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D99912C318984D3F00BFCBA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Kickflip;
+			};
+			buildConfigurationList = D99912C618984D3F00BFCBA4 /* Build configuration list for PBXProject "Kickflip" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D99912C218984D3F00BFCBA4;
+			productRefGroup = D99912CC18984D3F00BFCBA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D945ADA2189853A80026F697 /* KFDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D945ADA1189853A80026F697 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D945ADD7189854000026F697 /* InfoPlist.strings in Resources */,
+				D945ADD8189854000026F697 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ED2B2FA4594E4D2FB926AF71 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD523A8DB5414023AF7AF9A6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D945AD9F189853A80026F697 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D945ADDB189854000026F697 /* main.m in Sources */,
+				D945AF411898635A0026F697 /* KFDemoViewController.m in Sources */,
+				D945ADD9189854000026F697 /* KFAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D945ADCF189854000026F697 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D945ADD0189854000026F697 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D945ADC9189853A90026F697 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49767AF7DBF441F8BD1E00E7 /* Pods.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Example/KFDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Example/KFDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D945ADCA189853A90026F697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49767AF7DBF441F8BD1E00E7 /* Pods.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Example/KFDemo-Prefix.pch";
+				INFOPLIST_FILE = "Example/KFDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D99912EC18984D3F00BFCBA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D99912ED18984D3F00BFCBA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D945ADC8189853A90026F697 /* Build configuration list for PBXNativeTarget "KFDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D945ADC9189853A90026F697 /* Debug */,
+				D945ADCA189853A90026F697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D99912C618984D3F00BFCBA4 /* Build configuration list for PBXProject "Kickflip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D99912EC18984D3F00BFCBA4 /* Debug */,
+				D99912ED18984D3F00BFCBA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D99912C318984D3F00BFCBA4 /* Project object */;
+}
