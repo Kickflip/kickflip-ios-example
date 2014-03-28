@@ -15,6 +15,7 @@ Grab the source code, check for changes to our Podspecs repo, and then update th
 
 	$ git clone git@github.com:Kickflip/kickflip-ios-example.git
     $ cd kickflip-ios-example
+    $ git submodule update --init
     $ pod repo update kickflip
     $ pod
     
@@ -22,7 +23,10 @@ If you would like to make modifications to the core SDK, you can integrate the S
 
 ## KFSecrets.h
 
-You'll need to sign up and grab API keys from http://kickflip.io and put them in this file.
+You'll need to [sign up](http://kickflip.io), make a new app, and then put your API keys from  and put them in a file called `KFSecrets.h` with the following contents:
+
+	#define KICKFLIP_API_KEY @"Client ID from kickflip.io"
+	#define KICKFLIP_API_SECRET @"Client Secret from kickflip.io"
 
 ## License
 
