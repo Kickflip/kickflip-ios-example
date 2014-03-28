@@ -20,6 +20,10 @@ Grab the source code, check for changes to our Podspecs repo, and then update th
     
 If you would like to make modifications to the core SDK, you can integrate the SDK as a submodule as well (check the `Podfile` for more info).
 
+## KFSecrets.h
+
+You'll need to sign up and grab API keys from http://kickflip.io and put them in this file.
+
 ## License
 
 Apache 2.0

@@ -27,7 +27,11 @@ PODS:
   - SSKeychain (1.2.1)
 
 DEPENDENCIES:
-  - Kickflip (~> 0.9)
+  - Kickflip (from `Submodules/kickflip-ios-sdk/Kickflip.podspec`)
+
+EXTERNAL SOURCES:
+  Kickflip:
+    :path: Submodules/kickflip-ios-sdk/Kickflip.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: 61fdd49e2ffe6380378df37b3b6e70630bb9dd66
