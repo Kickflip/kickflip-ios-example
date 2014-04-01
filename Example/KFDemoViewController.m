@@ -17,15 +17,6 @@
 
 @implementation KFDemoViewController
 
-- (id) init {
-    if (self = [super init]) {
-        self.broadcastButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self.broadcastButton addTarget:self action:@selector(broadcastButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [self.broadcastButton setTitle:@"Broadcast" forState:UIControlStateNormal];
-    }
-    return self;
-}
-
 - (void) broadcastButtonPressed:(id)sender {
     [Kickflip presentBroadcasterFromViewController:self ready:^(NSURL *streamURL) {
         if (streamURL) {
@@ -40,15 +31,31 @@
     }];
 }
 
+- (void) setupNavigationBarAppearance {
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.7 blue:0.0 alpha:1.0];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self.view addSubview:self.broadcastButton];
+
+    [self setupNavigationBarAppearance];
+
+    self.title = @"Kickflip";
+    
+    UIBarButtonItem *broadcastBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"broadcast.png"] style:UIBarButtonItemStylePlain target:self action:@selector(broadcastButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = broadcastBarButton;
+    
+
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.broadcastButton.frame = CGRectMake(0, 0, 200, 100);
 }
 
 - (void)didReceiveMemoryWarning

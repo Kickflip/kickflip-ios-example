@@ -25,9 +25,11 @@
     
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
-    self.window.rootViewController = [[KFDemoViewController alloc] init];
+    KFDemoViewController *demoVC = [[KFDemoViewController alloc] init];
+    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:demoVC];
     [self.window makeKeyAndVisible];
-    signal(SIGPIPE, SIG_IGN);
+    //signal(SIGPIPE, SIG_IGN);
     return YES;
 }
 

@@ -10,7 +10,4 @@
 
 @interface KFDemoViewController : UIViewController
 
-@property (nonatomic, strong, readonly) UIButton *broadcastButton;
-
-
 @end
