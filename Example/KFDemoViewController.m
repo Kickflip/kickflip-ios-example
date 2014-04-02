@@ -10,6 +10,7 @@
 #import "Kickflip.h"
 #import "KFAPIClient.h"
 #import "KFLog.h"
+#import "KFUser.h"
 
 @interface KFDemoViewController ()
 @property (nonatomic, strong, readwrite) UIButton *broadcastButton;
@@ -51,7 +52,19 @@
     UIBarButtonItem *broadcastBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"broadcast.png"] style:UIBarButtonItemStylePlain target:self action:@selector(broadcastButtonPressed:)];
     self.navigationItem.rightBarButtonItem = broadcastBarButton;
     
+    UIBarButtonItem *testButton = [[UIBarButtonItem alloc] initWithTitle:@"Test" style:UIBarButtonItemStylePlain target:self action:@selector(testButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = testButton;
+}
 
+- (void) testButtonPressed:(id)sender {
+    KFUser *activeUser = [KFUser activeUser];
+    [[KFAPIClient sharedClient] requestStreamsForUsername:activeUser.username user:activeUser callbackBlock:^(NSArray *streams, NSError *error) {
+        if (error) {
+            DDLogError(@"Error fetching user streams: %@", error);
+            return;
+        }
+        DDLogInfo(@"Fetched streams: %@", streams);
+    }];
 }
 
 - (void) viewWillAppear:(BOOL)animated {

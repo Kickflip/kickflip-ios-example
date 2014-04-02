@@ -5,3 +5,4 @@ platform :ios, "7.0"
 pod 'Kickflip', :path => 'Submodules/kickflip-ios-sdk/Kickflip.podspec'
 
 #pod 'Kickflip', '~> 0.9'
+pod 'YapDatabase'
