@@ -62,7 +62,9 @@
             DDLogError(@"Error fetching all streams: %@", error);
             return;
         }
-        DDLogInfo(@"Fetched streams: %@", streams);
+        for (KFStream *stream in streams) {
+            DDLogInfo(@"Fetched stream: %@", stream);
+        }
     }];
 }
 
