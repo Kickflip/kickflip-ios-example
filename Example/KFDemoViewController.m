@@ -57,10 +57,9 @@
 }
 
 - (void) testButtonPressed:(id)sender {
-    KFUser *activeUser = [KFUser activeUser];
-    [[KFAPIClient sharedClient] requestStreamsForUsername:activeUser.username callbackBlock:^(NSArray *streams, NSError *error) {
+    [[KFAPIClient sharedClient] requestAllStreams:^(NSArray *streams, NSError *error) {
         if (error) {
-            DDLogError(@"Error fetching user streams: %@", error);
+            DDLogError(@"Error fetching all streams: %@", error);
             return;
         }
         DDLogInfo(@"Fetched streams: %@", streams);
