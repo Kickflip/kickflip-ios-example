@@ -11,12 +11,31 @@
 #import "KFAPIClient.h"
 #import "KFLog.h"
 #import "KFUser.h"
+#import "YapDatabase.h"
+#import "YapDatabaseView.h"
+#import "UIView+AutoLayout.h"
+#import "TTTTimeIntervalFormatter.h"
+#import "KFDateUtils.h"
+
+static NSString * const kKFStreamView = @"kKFStreamView";
+static NSString * const kKFStreamsGroup = @"kKFStreamsGroup";
+static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
+static NSString * const kKFStreamCellIdentifier = @"kKFStreamCellIdentifier";
+
 
 @interface KFDemoViewController ()
 @property (nonatomic, strong, readwrite) UIButton *broadcastButton;
+@property (nonatomic, strong) YapDatabase *database;
+@property (nonatomic, strong) YapDatabaseConnection *uiConnection;
+@property (nonatomic, strong) YapDatabaseConnection *bgConnection;
+@property (nonatomic, strong) YapDatabaseViewMappings *mappings;
 @end
 
 @implementation KFDemoViewController
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void) broadcastButtonPressed:(id)sender {
     [Kickflip presentBroadcasterFromViewController:self ready:^(NSURL *streamURL) {
@@ -32,6 +51,68 @@
     }];
 }
 
+
+- (TTTTimeIntervalFormatter*) timeIntervalFormatter {
+    static TTTTimeIntervalFormatter *timeFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
+    });
+    return timeFormatter;
+}
+
+- (NSString *) applicationDocumentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+
+- (void) setupDatabase {
+    NSString *docs = [self applicationDocumentsDirectory];
+    NSString *dbPath = [docs stringByAppendingPathComponent:@"kickflip.sqlite"];
+    self.database = [[YapDatabase alloc] initWithPath:dbPath];
+    self.uiConnection = [self.database newConnection];
+    self.bgConnection = [self.database newConnection];
+    [self setupDatabaseView];
+}
+
+- (void) setupDatabaseView {
+    YapDatabaseViewBlockType groupingBlockType;
+    YapDatabaseViewGroupingWithObjectBlock groupingBlock;
+    
+    YapDatabaseViewBlockType sortingBlockType;
+    YapDatabaseViewSortingWithObjectBlock sortingBlock;
+    
+    groupingBlockType = YapDatabaseViewBlockTypeWithObject;
+    groupingBlock = ^NSString *(NSString *collection, NSString *key, id object){
+        if ([object isKindOfClass:[KFStream class]])
+            return kKFStreamsGroup;
+        return nil; // exclude from view
+    };
+    
+    sortingBlockType = YapDatabaseViewBlockTypeWithObject;
+    sortingBlock = ^NSComparisonResult(NSString *group, NSString *collection1, NSString *key1, id obj1,
+                     NSString *collection2, NSString *key2, id obj2){
+        if ([group isEqualToString:kKFStreamsGroup]) {
+            KFStream *stream1 = obj1;
+            KFStream *stream2 = obj2;
+            return [stream2.startDate compare:stream1.startDate];
+        }
+        return NSOrderedSame;
+    };
+    
+    YapDatabaseView *databaseView =
+    [[YapDatabaseView alloc] initWithGroupingBlock:groupingBlock
+                                 groupingBlockType:groupingBlockType
+                                      sortingBlock:sortingBlock
+                                  sortingBlockType:sortingBlockType];
+    [self.database registerExtension:databaseView withName:kKFStreamView];
+    
+
+}
+
+
 - (void) setupNavigationBarAppearance {
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
@@ -41,9 +122,23 @@
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
+- (void) setupTableView {
+    self.streamsTableView = [[UITableView alloc] init];
+    self.streamsTableView.dataSource = self;
+    self.streamsTableView.delegate = self;
+    [self.streamsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kKFStreamCellIdentifier];
+    [self.view addSubview:self.streamsTableView];
+    self.streamsTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *constraint = [self.streamsTableView autoPinToTopLayoutGuideOfViewController:self withInset:0.0f];
+    [self.view addConstraint:constraint];
+    NSArray *constraints = [self.streamsTableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
+    [self.view addConstraints:constraints];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupDatabase];
 
     [self setupNavigationBarAppearance];
 
@@ -52,30 +147,170 @@
     UIBarButtonItem *broadcastBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"broadcast.png"] style:UIBarButtonItemStylePlain target:self action:@selector(broadcastButtonPressed:)];
     self.navigationItem.rightBarButtonItem = broadcastBarButton;
     
-    UIBarButtonItem *testButton = [[UIBarButtonItem alloc] initWithTitle:@"Test" style:UIBarButtonItemStylePlain target:self action:@selector(testButtonPressed:)];
-    self.navigationItem.leftBarButtonItem = testButton;
+    [self setupViewMappings];
+    
+    [self setupTableView];
 }
 
-- (void) testButtonPressed:(id)sender {
+- (void) setupViewMappings {
+    [self.uiConnection beginLongLivedReadTransaction];
+
+    NSArray *groups = @[ kKFStreamsGroup ];
+    self.mappings = [[YapDatabaseViewMappings alloc] initWithGroups:groups view:kKFStreamView];
+    
+    [self.uiConnection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
+        // One-time initialization
+        [self.mappings updateWithTransaction:transaction];
+    }];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(yapDatabaseModified:)
+                                                 name:YapDatabaseModifiedNotification
+                                               object:self.database];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [[KFAPIClient sharedClient] requestAllStreams:^(NSArray *streams, NSError *error) {
         if (error) {
             DDLogError(@"Error fetching all streams: %@", error);
             return;
         }
-        for (KFStream *stream in streams) {
-            DDLogInfo(@"Fetched stream: %@", stream);
-        }
+        [self.bgConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+            for (KFStream *stream in streams) {
+                KFStream *newStream = [[transaction objectForKey:stream.streamID inCollection:kKFStreamsCollection] copy];
+                if (!newStream) {
+                    newStream = stream;
+                } else {
+                    [newStream mergeValuesForKeysFromModel:stream];
+                }
+                [transaction setObject:newStream forKey:stream.streamID inCollection:kKFStreamsCollection];
+            }
+        }];
     }];
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)sender
+{
+    return [self.mappings numberOfSections];
+}
+
+- (NSInteger)tableView:(UITableView *)sender numberOfRowsInSection:(NSInteger)section
+{
+    return [self.mappings numberOfItemsInSection:section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)sender cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    __block KFStream *stream = nil;
+    [self.uiConnection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
+        stream = [[transaction extension:kKFStreamView] objectAtIndexPath:indexPath withMappings:self.mappings];
+    }];
+    
+    UITableViewCell *cell = [sender dequeueReusableCellWithIdentifier:kKFStreamCellIdentifier];
+    NSString *dateString = [[KFDateUtils localizedDateFormatter] stringFromDate:stream.startDate];
+    NSString *relativeDateString = [[self timeIntervalFormatter] stringForTimeIntervalFromDate:stream.startDate toDate:[NSDate date]];
+    cell.textLabel.text = dateString;
+    
+    return cell;
+}
+
+- (void)yapDatabaseModified:(NSNotification *)notification
+{
+    // Jump to the most recent commit.
+    // End & Re-Begin the long-lived transaction atomically.
+    // Also grab all the notifications for all the commits that I jump.
+    // If the UI is a bit backed up, I may jump multiple commits.
+    
+    NSArray *notifications = [self.uiConnection beginLongLivedReadTransaction];
+    
+    // Process the notification(s),
+    // and get the change-set(s) as applies to my view and mappings configuration.
+    
+    NSArray *sectionChanges = nil;
+    NSArray *rowChanges = nil;
+    
+    [[self.uiConnection ext:kKFStreamView] getSectionChanges:&sectionChanges
+                                                  rowChanges:&rowChanges
+                                            forNotifications:notifications
+                                                withMappings:self.mappings];
+    
+    // No need to update mappings.
+    // The above method did it automatically.
+    
+    if ([sectionChanges count] == 0 & [rowChanges count] == 0)
+    {
+        // Nothing has changed that affects our tableView
+        return;
+    }
+    
+    // Familiar with NSFetchedResultsController?
+    // Then this should look pretty familiar
+    
+    [self.streamsTableView beginUpdates];
+    
+    for (YapDatabaseViewSectionChange *sectionChange in sectionChanges)
+    {
+        switch (sectionChange.type)
+        {
+            case YapDatabaseViewChangeDelete :
+            {
+                [self.streamsTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionChange.index]
+                              withRowAnimation:UITableViewRowAnimationAutomatic];
+                break;
+            }
+            case YapDatabaseViewChangeInsert :
+            {
+                [self.streamsTableView insertSections:[NSIndexSet indexSetWithIndex:sectionChange.index]
+                              withRowAnimation:UITableViewRowAnimationAutomatic];
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    
+    for (YapDatabaseViewRowChange *rowChange in rowChanges)
+    {
+        switch (rowChange.type)
+        {
+            case YapDatabaseViewChangeDelete :
+            {
+                [self.streamsTableView deleteRowsAtIndexPaths:@[ rowChange.indexPath ]
+                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+                break;
+            }
+            case YapDatabaseViewChangeInsert :
+            {
+                [self.streamsTableView insertRowsAtIndexPaths:@[ rowChange.newIndexPath ]
+                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+                break;
+            }
+            case YapDatabaseViewChangeMove :
+            {
+                [self.streamsTableView deleteRowsAtIndexPaths:@[ rowChange.indexPath ]
+                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.streamsTableView insertRowsAtIndexPaths:@[ rowChange.newIndexPath ]
+                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+                break;
+            }
+            case YapDatabaseViewChangeUpdate :
+            {
+                [self.streamsTableView reloadRowsAtIndexPaths:@[ rowChange.indexPath ]
+                                      withRowAnimation:UITableViewRowAnimationNone];
+                break;
+            }
+        }
+    }
+    
+    [self.streamsTableView endUpdates];
 }
 
 @end

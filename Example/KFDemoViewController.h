@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KFDemoViewController : UIViewController
+@interface KFDemoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *streamsTableView;
 
 @end

@@ -15,6 +15,7 @@ PODS:
   - FFmpeg-iOS/precompiled (2.2)
   - FFmpegWrapper (1.0):
     - FFmpeg-iOS (~> 2.2)
+  - FormatterKit/TimeIntervalFormatter (1.4.2)
   - Kickflip (0.9):
     - AFNetworking (~> 1.3)
     - AFOAuth2Client (~> 0.1)
@@ -35,6 +36,7 @@ PODS:
     - CocoaLumberjack (~> 1.6.3)
 
 DEPENDENCIES:
+  - FormatterKit/TimeIntervalFormatter (~> 1.4)
   - Kickflip (from `Submodules/kickflip-ios-sdk/Kickflip.podspec`)
   - YapDatabase
 
@@ -49,6 +51,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
   FFmpeg-iOS: 380f2809c4ad1ce5793d9a5f6e59464f3ee94ba9
   FFmpegWrapper: 584afd030f2e299798bd4f9147363415b6b61c5c
+  FormatterKit: 2c241963bc3bf3f2b52e82c0a8e29a8f9865bf3d
   Kickflip: 4bacf1f6c4092f777f55f592fd9a2afd9834b314
   Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
   OWS3Client: d8d15def89a7faed7343d6a7d1e6f24bdddc92a5
