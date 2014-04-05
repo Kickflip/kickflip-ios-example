@@ -16,12 +16,13 @@
 #import "UIView+AutoLayout.h"
 #import "TTTTimeIntervalFormatter.h"
 #import "KFDateUtils.h"
+#import "KFStreamTableViewCell.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 static NSString * const kKFStreamView = @"kKFStreamView";
 static NSString * const kKFStreamsGroup = @"kKFStreamsGroup";
 static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
-static NSString * const kKFStreamCellIdentifier = @"kKFStreamCellIdentifier";
-
+static CGFloat kKFStreamTableViewCellHeight = 200.0f;
 
 @interface KFDemoViewController ()
 @property (nonatomic, strong, readwrite) UIButton *broadcastButton;
@@ -126,7 +127,7 @@ static NSString * const kKFStreamCellIdentifier = @"kKFStreamCellIdentifier";
     self.streamsTableView = [[UITableView alloc] init];
     self.streamsTableView.dataSource = self;
     self.streamsTableView.delegate = self;
-    [self.streamsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kKFStreamCellIdentifier];
+    [self.streamsTableView registerClass:[KFStreamTableViewCell class] forCellReuseIdentifier:[KFStreamTableViewCell cellIdentifier]];
     [self.view addSubview:self.streamsTableView];
     self.streamsTableView.translatesAutoresizingMaskIntoConstraints = NO;
     NSLayoutConstraint *constraint = [self.streamsTableView autoPinToTopLayoutGuideOfViewController:self withInset:0.0f];
@@ -207,6 +208,14 @@ static NSString * const kKFStreamCellIdentifier = @"kKFStreamCellIdentifier";
     return [self.mappings numberOfItemsInSection:section];
 }
 
+- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return kKFStreamTableViewCellHeight;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return kKFStreamTableViewCellHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)sender cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     __block KFStream *stream = nil;
@@ -214,10 +223,8 @@ static NSString * const kKFStreamCellIdentifier = @"kKFStreamCellIdentifier";
         stream = [[transaction extension:kKFStreamView] objectAtIndexPath:indexPath withMappings:self.mappings];
     }];
     
-    UITableViewCell *cell = [sender dequeueReusableCellWithIdentifier:kKFStreamCellIdentifier];
-    NSString *dateString = [[KFDateUtils localizedDateFormatter] stringFromDate:stream.startDate];
-    NSString *relativeDateString = [[self timeIntervalFormatter] stringForTimeIntervalFromDate:stream.startDate toDate:[NSDate date]];
-    cell.textLabel.text = dateString;
+    KFStreamTableViewCell *cell = [sender dequeueReusableCellWithIdentifier:[KFStreamTableViewCell cellIdentifier]];
+    [cell setStream:stream];
     
     return cell;
 }
@@ -311,6 +318,17 @@ static NSString * const kKFStreamCellIdentifier = @"kKFStreamCellIdentifier";
     }
     
     [self.streamsTableView endUpdates];
+}
+
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    __block KFStream *stream = nil;
+    [self.uiConnection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
+        stream = [[transaction extension:kKFStreamView] objectAtIndexPath:indexPath withMappings:self.mappings];
+    }];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MPMoviePlayerViewController *movieView = [[MPMoviePlayerViewController alloc] initWithContentURL:stream.streamURL];
+    [self presentViewController:movieView animated:YES completion:nil];
 }
 
 @end
