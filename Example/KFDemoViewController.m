@@ -35,6 +35,7 @@ static CGFloat kKFStreamTableViewCellHeight = 200.0f;
 @implementation KFDemoViewController
 
 - (void) dealloc {
+    self.pullToRefreshView = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -136,6 +137,11 @@ static CGFloat kKFStreamTableViewCellHeight = 200.0f;
     [self.view addConstraints:constraints];
 }
 
+- (void) setupPullToRefresh {
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.streamsTableView delegate:self];
+    self.pullToRefreshView.contentView = [[SSPullToRefreshSimpleContentView alloc] initWithFrame:CGRectZero];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -151,6 +157,7 @@ static CGFloat kKFStreamTableViewCellHeight = 200.0f;
     [self setupViewMappings];
     
     [self setupTableView];
+    [self setupPullToRefresh];
 }
 
 - (void) setupViewMappings {
@@ -173,9 +180,17 @@ static CGFloat kKFStreamTableViewCellHeight = 200.0f;
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self refreshStreams];
+}
+
+- (void) refreshStreams {
+    [self.pullToRefreshView startLoading];
     [[KFAPIClient sharedClient] requestAllStreams:^(NSArray *streams, NSError *error) {
         if (error) {
             DDLogError(@"Error fetching all streams: %@", error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.pullToRefreshView finishLoading];
+            });
             return;
         }
         [self.bgConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
@@ -188,7 +203,9 @@ static CGFloat kKFStreamTableViewCellHeight = 200.0f;
                 }
                 [transaction setObject:newStream forKey:stream.streamID inCollection:kKFStreamsCollection];
             }
-        }];
+        } completionBlock:^{
+            [self.pullToRefreshView finishLoading];
+        } completionQueue:dispatch_get_main_queue()];
     }];
 }
 
@@ -330,5 +347,10 @@ static CGFloat kKFStreamTableViewCellHeight = 200.0f;
     MPMoviePlayerViewController *movieView = [[MPMoviePlayerViewController alloc] initWithContentURL:stream.streamURL];
     [self presentViewController:movieView animated:YES completion:nil];
 }
+
+- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view {
+    [self refreshStreams];
+}
+
 
 @end
