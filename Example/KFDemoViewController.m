@@ -18,11 +18,11 @@
 #import "KFDateUtils.h"
 #import "KFStreamTableViewCell.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "UIActionSheet+Blocks.h"
 
 static NSString * const kKFStreamView = @"kKFStreamView";
 static NSString * const kKFStreamsGroup = @"kKFStreamsGroup";
 static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
-static CGFloat kKFStreamTableViewCellHeight = 200.0f;
 
 @interface KFDemoViewController ()
 @property (nonatomic, strong, readwrite) UIButton *broadcastButton;
@@ -226,11 +226,11 @@ static CGFloat kKFStreamTableViewCellHeight = 200.0f;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kKFStreamTableViewCellHeight;
+    return [KFStreamTableViewCell defaultHeight];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kKFStreamTableViewCellHeight;
+    return [KFStreamTableViewCell defaultHeight];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)sender cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -242,7 +242,20 @@ static CGFloat kKFStreamTableViewCellHeight = 200.0f;
     
     KFStreamTableViewCell *cell = [sender dequeueReusableCellWithIdentifier:[KFStreamTableViewCell cellIdentifier]];
     [cell setStream:stream];
-    
+    [cell setActionBlock:^{
+        RIButtonItem *cancelItem = [RIButtonItem itemWithLabel:@"Cancel"];
+        RIButtonItem *shareItem = [RIButtonItem itemWithLabel:@"Share" action:^{
+            NSLog(@"Share it");
+        }];
+        RIButtonItem *flagItem = [RIButtonItem itemWithLabel:@"Flag" action:^{
+            NSLog(@"Flag it");
+        }];
+        RIButtonItem *deleteItem = [RIButtonItem itemWithLabel:@"Delete" action:^{
+            NSLog(@"Delete it");
+        }];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil cancelButtonItem:cancelItem destructiveButtonItem:flagItem otherButtonItems:shareItem, nil];
+        [actionSheet showInView:self.view];
+    }];
     return cell;
 }
 
