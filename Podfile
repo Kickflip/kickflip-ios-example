@@ -6,6 +6,5 @@ pod 'Kickflip', :path => 'Submodules/kickflip-ios-sdk/Kickflip.podspec'
 
 #pod 'Kickflip', '~> 0.9'
 pod 'YapDatabase'
-pod 'FormatterKit/TimeIntervalFormatter', '~> 1.4'
 pod 'SSPullToRefresh', '~> 1.2'
 pod 'UIAlertView-Blocks', '~> 1.0'

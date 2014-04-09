@@ -27,14 +27,14 @@
 /* Begin PBXFileReference section */
 		49767AF7DBF441F8BD1E00E7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D5C3B6210219445A92F3D20B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D945ADA3189853A80026F697 /* KFDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D945ADA3189853A80026F697 /* Kickflip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickflip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D945ADA5189853A80026F697 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D945ADD0189854000026F697 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D945ADD1189854000026F697 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D945ADD2189854000026F697 /* KFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFAppDelegate.h; sourceTree = "<group>"; };
 		D945ADD3189854000026F697 /* KFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFAppDelegate.m; sourceTree = "<group>"; };
-		D945ADD4189854000026F697 /* KFDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KFDemo-Info.plist"; sourceTree = "<group>"; };
-		D945ADD5189854000026F697 /* KFDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KFDemo-Prefix.pch"; sourceTree = "<group>"; };
+		D945ADD4189854000026F697 /* Kickflip-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Kickflip-Info.plist"; sourceTree = "<group>"; };
+		D945ADD5189854000026F697 /* Kickflip-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kickflip-Prefix.pch"; sourceTree = "<group>"; };
 		D945ADD6189854000026F697 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D945AF3418985A5E0026F697 /* KFSecrets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFSecrets.h; sourceTree = "<group>"; };
 		D945AF3F1898635A0026F697 /* KFDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFDemoViewController.h; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 				D945ADD3189854000026F697 /* KFAppDelegate.m */,
 				D945AF3F1898635A0026F697 /* KFDemoViewController.h */,
 				D945AF401898635A0026F697 /* KFDemoViewController.m */,
-				D945ADD4189854000026F697 /* KFDemo-Info.plist */,
-				D945ADD5189854000026F697 /* KFDemo-Prefix.pch */,
+				D945ADD4189854000026F697 /* Kickflip-Info.plist */,
+				D945ADD5189854000026F697 /* Kickflip-Prefix.pch */,
 				D945ADD6189854000026F697 /* main.m */,
 			);
 			path = Example;
@@ -101,7 +101,7 @@
 		D99912CC18984D3F00BFCBA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D945ADA3189853A80026F697 /* KFDemo.app */,
+				D945ADA3189853A80026F697 /* Kickflip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,9 +127,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D945ADA2189853A80026F697 /* KFDemo */ = {
+		D945ADA2189853A80026F697 /* Kickflip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D945ADC8189853A90026F697 /* Build configuration list for PBXNativeTarget "KFDemo" */;
+			buildConfigurationList = D945ADC8189853A90026F697 /* Build configuration list for PBXNativeTarget "Kickflip" */;
 			buildPhases = (
 				FD523A8DB5414023AF7AF9A6 /* Check Pods Manifest.lock */,
 				D945AD9F189853A80026F697 /* Sources */,
@@ -141,9 +141,9 @@
 			);
 			dependencies = (
 			);
-			name = KFDemo;
+			name = Kickflip;
 			productName = KFDemo;
-			productReference = D945ADA3189853A80026F697 /* KFDemo.app */;
+			productReference = D945ADA3189853A80026F697 /* Kickflip.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -167,7 +167,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D945ADA2189853A80026F697 /* KFDemo */,
+				D945ADA2189853A80026F697 /* Kickflip */,
 			);
 		};
 /* End PBXProject section */
@@ -254,12 +254,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/KFDemo-Prefix.pch";
+				GCC_PREFIX_HEADER = "Example/Kickflip-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Example/KFDemo-Info.plist";
+				INFOPLIST_FILE = "Example/Kickflip-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -278,8 +278,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/KFDemo-Prefix.pch";
-				INFOPLIST_FILE = "Example/KFDemo-Info.plist";
+				GCC_PREFIX_HEADER = "Example/Kickflip-Prefix.pch";
+				INFOPLIST_FILE = "Example/Kickflip-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -357,7 +357,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D945ADC8189853A90026F697 /* Build configuration list for PBXNativeTarget "KFDemo" */ = {
+		D945ADC8189853A90026F697 /* Build configuration list for PBXNativeTarget "Kickflip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D945ADC9189853A90026F697 /* Debug */,

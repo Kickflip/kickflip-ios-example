@@ -14,7 +14,6 @@
 #import "YapDatabase.h"
 #import "YapDatabaseView.h"
 #import "UIView+AutoLayout.h"
-#import "TTTTimeIntervalFormatter.h"
 #import "KFDateUtils.h"
 #import "KFStreamTableViewCell.h"
 #import <MediaPlayer/MediaPlayer.h>
@@ -53,16 +52,6 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
     }];
 }
 
-
-- (TTTTimeIntervalFormatter*) timeIntervalFormatter {
-    static TTTTimeIntervalFormatter *timeFormatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
-    });
-    return timeFormatter;
-}
-
 - (NSString *) applicationDocumentsDirectory
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -88,8 +77,14 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
     
     groupingBlockType = YapDatabaseViewBlockTypeWithObject;
     groupingBlock = ^NSString *(NSString *collection, NSString *key, id object){
-        if ([object isKindOfClass:[KFStream class]])
+        if ([object isKindOfClass:[KFStream class]]) {
+            KFStream *stream = object;
+            // Hide streams without thumbnails for now
+            if (!stream.thumbnailURL) {
+                return nil;
+            }
             return kKFStreamsGroup;
+        }
         return nil; // exclude from view
     };
     
@@ -151,9 +146,14 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
 
     self.title = @"Kickflip";
     
-    UIBarButtonItem *broadcastBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"broadcast.png"] style:UIBarButtonItemStylePlain target:self action:@selector(broadcastButtonPressed:)];
+    UIBarButtonItem *broadcastBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"KFBroadcastIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(broadcastButtonPressed:)];
     self.navigationItem.rightBarButtonItem = broadcastBarButton;
     
+    /*
+    UIImageView *logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"KFLogoTransparent"]];
+    logoImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.navigationItem.titleView = logoImageView;
+    */
     [self setupViewMappings];
     
     [self setupTableView];
@@ -243,17 +243,29 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
     KFStreamTableViewCell *cell = [sender dequeueReusableCellWithIdentifier:[KFStreamTableViewCell cellIdentifier]];
     [cell setStream:stream];
     [cell setActionBlock:^{
+        KFUser *activeUser = [KFUser activeUser];
+        
         RIButtonItem *cancelItem = [RIButtonItem itemWithLabel:@"Cancel"];
         RIButtonItem *shareItem = [RIButtonItem itemWithLabel:@"Share" action:^{
-            NSLog(@"Share it");
+            UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[stream.kickflipURL] applicationActivities:nil];
+            UIActivityViewControllerCompletionHandler completionHandler = ^(NSString *activityType, BOOL completed) {
+            };
+            activityViewController.completionHandler = completionHandler;
+            [self presentViewController:activityViewController animated:YES completion:nil];
         }];
+        RIButtonItem *otherItem = nil;
         RIButtonItem *flagItem = [RIButtonItem itemWithLabel:@"Flag" action:^{
             NSLog(@"Flag it");
         }];
         RIButtonItem *deleteItem = [RIButtonItem itemWithLabel:@"Delete" action:^{
             NSLog(@"Delete it");
         }];
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil cancelButtonItem:cancelItem destructiveButtonItem:flagItem otherButtonItems:shareItem, nil];
+        if ([stream.username isEqualToString:[activeUser username]]) {
+            otherItem = deleteItem;
+        } else {
+            otherItem = flagItem;
+        }
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil cancelButtonItem:cancelItem destructiveButtonItem:otherItem otherButtonItems:shareItem, nil];
         [actionSheet showInView:self.view];
     }];
     return cell;
