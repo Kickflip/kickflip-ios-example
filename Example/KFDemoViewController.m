@@ -245,6 +245,10 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
     [cell setActionBlock:^{
         KFUser *activeUser = [KFUser activeUser];
         
+        NSDictionary *dict = [MTLJSONAdapter JSONDictionaryFromModel:stream];
+        NSString *jsonString = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding];
+        DDLogInfo(@"stream json: %@", jsonString);
+        
         RIButtonItem *cancelItem = [RIButtonItem itemWithLabel:@"Cancel"];
         RIButtonItem *shareItem = [RIButtonItem itemWithLabel:@"Share" action:^{
             UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[stream.kickflipURL] applicationActivities:nil];
