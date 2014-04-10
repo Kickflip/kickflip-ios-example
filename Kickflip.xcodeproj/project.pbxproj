@@ -22,6 +22,7 @@
 		D945AF68189873900026F697 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF67189873900026F697 /* libc++.dylib */; };
 		D945AF6C189874B80026F697 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF6A189874AB0026F697 /* SystemConfiguration.framework */; };
 		D945AF6E189874C80026F697 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF6D189874C70026F697 /* MobileCoreServices.framework */; };
+		D9F0C38718F75C5500DCED85 /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9F0C38618F75C5500DCED85 /* Pods-acknowledgements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D945AF6D189874C70026F697 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D99912CE18984D3F00BFCBA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D99912DC18984D3F00BFCBA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D9F0C38618F75C5500DCED85 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-acknowledgements.plist"; path = "Pods/Pods-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				D945ADD3189854000026F697 /* KFAppDelegate.m */,
 				D945AF3F1898635A0026F697 /* KFDemoViewController.h */,
 				D945AF401898635A0026F697 /* KFDemoViewController.m */,
+				D9F0C38618F75C5500DCED85 /* Pods-acknowledgements.plist */,
 				D945ADD4189854000026F697 /* Kickflip-Info.plist */,
 				D945ADD5189854000026F697 /* Kickflip-Prefix.pch */,
 				D945ADD6189854000026F697 /* main.m */,
@@ -177,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9F0C38718F75C5500DCED85 /* Pods-acknowledgements.plist in Resources */,
 				D945ADD7189854000026F697 /* InfoPlist.strings in Resources */,
 				D945ADD8189854000026F697 /* Images.xcassets in Resources */,
 			);

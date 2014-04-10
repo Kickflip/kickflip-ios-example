@@ -18,6 +18,7 @@
 #import "KFStreamTableViewCell.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "UIActionSheet+Blocks.h"
+#import "VTAcknowledgementsViewController.h"
 
 static NSString * const kKFStreamView = @"kKFStreamView";
 static NSString * const kKFStreamsGroup = @"kKFStreamsGroup";
@@ -112,7 +113,9 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
 
 - (void) setupNavigationBarAppearance {
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    NSDictionary *attributes = @{NSForegroundColorAttributeName : [UIColor whiteColor],
+                                            NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0]};
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.7 blue:0.0 alpha:1.0];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -132,6 +135,12 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
     [self.view addConstraints:constraints];
 }
 
+- (void) infoButtonPressed:(id)sender {
+    VTAcknowledgementsViewController *viewController = [VTAcknowledgementsViewController acknowledgementsViewController];
+    viewController.headerText = NSLocalizedString(@"We love open source software.", nil); // optional
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 - (void) setupPullToRefresh {
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.streamsTableView delegate:self];
     self.pullToRefreshView.contentView = [[SSPullToRefreshSimpleContentView alloc] initWithFrame:CGRectZero];
@@ -146,8 +155,11 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
 
     self.title = @"Kickflip";
     
-    UIBarButtonItem *broadcastBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"KFBroadcastIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(broadcastButtonPressed:)];
+    UIBarButtonItem *broadcastBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"KFVideoCameraIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(broadcastButtonPressed:)];
     self.navigationItem.rightBarButtonItem = broadcastBarButton;
+    
+    UIBarButtonItem *infoBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"KFInfoIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(infoButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = infoBarButton;
     
     /*
     UIImageView *logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"KFLogoTransparent"]];

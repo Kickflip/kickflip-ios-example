@@ -5,6 +5,7 @@ platform :ios, "7.0"
 pod 'Kickflip', :path => 'Submodules/kickflip-ios-sdk/Kickflip.podspec'
 
 #pod 'Kickflip', '~> 0.9'
-pod 'YapDatabase'
+pod 'YapDatabase', '~> 2.4'
 pod 'SSPullToRefresh', '~> 1.2'
 pod 'UIAlertView-Blocks', '~> 1.0'
+pod 'VTAcknowledgementsViewController', '~> 0.10'
