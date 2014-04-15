@@ -1,7 +1,13 @@
 kickflip-ios-example
 ====================
 
-Example project for integration of the [Kickflip iOS SDK](https://github.com/Kickflip/kickflip-ios-sdk) for super easy live broadcasts.
+[![kickflip app screenshot](https://i.imgur.com/QPtggd9m.jpg)](https://i.imgur.com/QPtggd9.png)
+[![kickflip live broadcast screenshot](https://i.imgur.com/VHB6iQQm.jpg)](https://i.imgur.com/VHB6iQQ.png)
+[![kickflip live consumption screenshot](https://i.imgur.com/IZbiyhRm.jpg)](https://i.imgur.com/IZbiyhR.png)
+
+[Screenshots Gallery](http://imgur.com/a/IwuZ7)
+
+Example project for integration of the [Kickflip iOS SDK](https://github.com/Kickflip/kickflip-ios-sdk) for super easy live broadcasts. We have an [example project for Android](https://github.com/kickflip/kickflip-android-example) as well.
     
 ## Cocoapods Setup
 
