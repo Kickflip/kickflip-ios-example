@@ -40,9 +40,9 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
 }
 
 - (void) broadcastButtonPressed:(id)sender {
-    [Kickflip presentBroadcasterFromViewController:self ready:^(NSURL *streamURL) {
-        if (streamURL) {
-            DDLogInfo(@"Stream is ready at URL: %@", streamURL);
+    [Kickflip presentBroadcasterFromViewController:self ready:^(KFStream *stream) {
+        if (stream.streamURL) {
+            DDLogInfo(@"Stream is ready at URL: %@", stream.streamURL);
         }
     } completion:^(BOOL success, NSError* error){
         if (!success) {
@@ -139,6 +139,65 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
     VTAcknowledgementsViewController *viewController = [VTAcknowledgementsViewController acknowledgementsViewController];
     viewController.headerText = NSLocalizedString(@"We love open source software.", nil); // optional
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void) apiExample {
+    [[KFAPIClient sharedClient] requestNewActiveUserWithUsername:@"bob" password:@"secret password" email:@"bob@example.com" displayName:@"Bob Jones" extraInfo:@{@"otherInfo": @"Any other key/values you would want"} callbackBlock:^(KFUser *activeUser, NSError *error) {
+        if (activeUser) {
+            NSLog(@"great, you've got a new user!");
+        }
+    }];
+    KFUser *activeUser = nil;
+    [[KFAPIClient sharedClient] updateMetadataForUser:activeUser newPassword:nil email:@"test@example.com" displayName:@"Bob Jones II" extraInfo:@{@"otherInfo": @"Any other key/values you would want"}  callbackBlock:^(KFUser *updatedUser, NSError *error) {
+        if (updatedUser) {
+            NSLog(@"great, you've got updated a user!");
+        }
+    }];
+    
+    [[KFAPIClient sharedClient] requestUserWithUserName:@"existing-username" callbackBlock:^(KFUser *existingUser, NSError *error) {
+        if (existingUser) {
+            NSLog(@"you got info for an existing user!");
+        }
+    }];
+    
+    [[KFAPIClient sharedClient] loginExistingUserWithUsername:@"existing-username" password:@"password" callbackBlock:^(KFUser *existingUser, NSError *error) {
+        if (existingUser) {
+            NSLog(@"successfully logged in existing user");
+        }
+    }];
+    
+    [[KFAPIClient sharedClient] startNewStream:^(KFStream *newStream, NSError *error) {
+        if (newStream) {
+            NSLog(@"it's a new stream ready for public broadcast!");
+        }
+    }];
+    
+    KFStream *stream = nil;
+    
+    [[KFAPIClient sharedClient] stopStream:stream callbackBlock:^(BOOL success, NSError *error) {
+        if (success) {
+            NSLog(@"Stream stopped");
+        }
+    }];
+    
+    [[KFAPIClient sharedClient] updateMetadataForStream:stream callbackBlock:^(KFStream *updatedStream, NSError *error) {
+        if (updatedStream) {
+            NSLog(@"stream updated!");
+        }
+    }];
+    
+    [[KFAPIClient sharedClient] requestStreamsByKeyword:@"skateboard" callbackBlock:^(NSArray *streams, NSError *error) {
+        NSLog(@"found %d streams", (int)streams.count);
+    }];
+    
+    CLLocation *currentLocation = nil;
+    [[KFAPIClient sharedClient] requestStreamsForLocation:currentLocation radius:100 callbackBlock:^(NSArray *streams, NSError *error) {
+        NSLog(@"found %d streams near %@", (int)streams.count, currentLocation);
+    }];
+    
+    [[KFAPIClient sharedClient] requestStreamsForUsername:@"kickflip-user" callbackBlock:^(NSArray *streams, NSError *error) {
+        NSLog(@"found %d public streams for user", (int)streams.count);
+    }];
 }
 
 - (void) setupPullToRefresh {
