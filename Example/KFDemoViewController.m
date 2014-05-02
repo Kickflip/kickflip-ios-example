@@ -30,6 +30,7 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
 @property (nonatomic, strong) YapDatabaseConnection *uiConnection;
 @property (nonatomic, strong) YapDatabaseConnection *bgConnection;
 @property (nonatomic, strong) YapDatabaseViewMappings *mappings;
+@property (nonatomic) NSUInteger currentPage;
 @end
 
 @implementation KFDemoViewController
@@ -147,14 +148,13 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
             NSLog(@"great, you've got a new user!");
         }
     }];
-    KFUser *activeUser = nil;
-    [[KFAPIClient sharedClient] updateMetadataForUser:activeUser newPassword:nil email:@"test@example.com" displayName:@"Bob Jones II" extraInfo:@{@"otherInfo": @"Any other key/values you would want"}  callbackBlock:^(KFUser *updatedUser, NSError *error) {
+    [[KFAPIClient sharedClient] updateMetadataForActiveUserWithNewPassword:nil email:@"test@example.com" displayName:@"Bob Jones II" extraInfo:@{@"otherInfo": @"Any other key/values you would want"}  callbackBlock:^(KFUser *updatedUser, NSError *error) {
         if (updatedUser) {
             NSLog(@"great, you've got updated a user!");
         }
     }];
     
-    [[KFAPIClient sharedClient] requestUserWithUserName:@"existing-username" callbackBlock:^(KFUser *existingUser, NSError *error) {
+    [[KFAPIClient sharedClient] requestUserInfoForUsername:@"existing-username" callbackBlock:^(KFUser *existingUser, NSError *error) {
         if (existingUser) {
             NSLog(@"you got info for an existing user!");
         }
@@ -186,16 +186,16 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
         }
     }];
     
-    [[KFAPIClient sharedClient] requestStreamsByKeyword:@"skateboard" callbackBlock:^(NSArray *streams, NSError *error) {
+    [[KFAPIClient sharedClient] requestStreamsByKeyword:@"skateboard" pageNumber:1 itemsPerPage:10 callbackBlock:^(NSArray *streams, KFPaginationInfo *paginationInfo, NSError *error) {
         NSLog(@"found %d streams", (int)streams.count);
     }];
     
     CLLocation *currentLocation = nil;
-    [[KFAPIClient sharedClient] requestStreamsForLocation:currentLocation radius:100 callbackBlock:^(NSArray *streams, NSError *error) {
+    [[KFAPIClient sharedClient] requestStreamsForLocation:currentLocation radius:100 pageNumber:1 itemsPerPage:25 callbackBlock:^(NSArray *streams, KFPaginationInfo *paginationInfo, NSError *error) {
         NSLog(@"found %d streams near %@", (int)streams.count, currentLocation);
     }];
     
-    [[KFAPIClient sharedClient] requestStreamsForUsername:@"kickflip-user" callbackBlock:^(NSArray *streams, NSError *error) {
+    [[KFAPIClient sharedClient] requestStreamsForUsername:@"kickflip-user" pageNumber:1 itemsPerPage:25 callbackBlock:^(NSArray *streams, KFPaginationInfo *paginationInfo, NSError *error) {
         NSLog(@"found %d public streams for user", (int)streams.count);
     }];
 }
@@ -256,7 +256,8 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
 
 - (void) refreshStreams {
     [self.pullToRefreshView startLoading];
-    [[KFAPIClient sharedClient] requestAllStreams:^(NSArray *streams, NSError *error) {
+    self.currentPage = 1;
+    [[KFAPIClient sharedClient] requestAllStreamsWithPageNumber:self.currentPage itemsPerPage:10 callbackBlock:^(NSArray *streams, KFPaginationInfo *paginationInfo, NSError *error) {
         if (error) {
             DDLogError(@"Error fetching all streams: %@", error);
             dispatch_async(dispatch_get_main_queue(), ^{
