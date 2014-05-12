@@ -287,14 +287,6 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
     // Dispose of any resources that can be recreated.
 }
 
-- (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    NSLog(@"begin drag");
-}
-
-- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"end decelerate");
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)sender
 {
     return [self.mappings numberOfSections];
