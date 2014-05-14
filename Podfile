@@ -2,9 +2,9 @@
 platform :ios, "7.0"
 
 # When making modifications to the SDK, using the line below can be useful
-pod 'Kickflip', :path => 'Submodules/kickflip-ios-sdk/Kickflip.podspec'
+#pod 'Kickflip', :path => 'Submodules/kickflip-ios-sdk/Kickflip.podspec'
 
-#pod 'Kickflip', '~> 0.9'
+pod 'Kickflip', '~> 1.0.0'
 pod 'YapDatabase', '~> 2.4'
 pod 'SSPullToRefresh', '~> 1.2'
 pod 'UIAlertView-Blocks', '~> 1.0'

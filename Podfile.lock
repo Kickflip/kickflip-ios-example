@@ -15,8 +15,8 @@ PODS:
   - FFmpeg/precompiled (2.2)
   - FFmpegWrapper (1.0):
     - FFmpeg (~> 2.2)
-  - FormatterKit/TimeIntervalFormatter (1.4.2)
-  - Kickflip (0.9):
+  - FormatterKit/TimeIntervalFormatter (1.4.3)
+  - Kickflip (1.0.0):
     - AFNetworking (~> 1.3)
     - AFOAuth2Client (~> 0.1)
     - CocoaLumberjack (~> 1.0)
@@ -44,15 +44,11 @@ PODS:
     - CocoaLumberjack (~> 1.6.3)
 
 DEPENDENCIES:
-  - Kickflip (from `Submodules/kickflip-ios-sdk/Kickflip.podspec`)
+  - Kickflip (~> 1.0.0)
   - SSPullToRefresh (~> 1.2)
   - UIAlertView-Blocks (~> 1.0)
   - VTAcknowledgementsViewController (~> 0.10)
   - YapDatabase (~> 2.4)
-
-EXTERNAL SOURCES:
-  Kickflip:
-    :path: Submodules/kickflip-ios-sdk/Kickflip.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: e403d4333a4e1956cb3fe42364c3c879f820c9a0
@@ -61,8 +57,8 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
   FFmpeg: 296428c7b7ca243d1a080f0bde88cbb9ab36617d
   FFmpegWrapper: 04ffe48c03138bd47414fa2e495d32c6031ff6d3
-  FormatterKit: 2c241963bc3bf3f2b52e82c0a8e29a8f9865bf3d
-  Kickflip: d69162157fb7f312751d9af7bebe64257df456ad
+  FormatterKit: 612f56cb00bcda20d8559a2b9a9e6ed9251b9752
+  Kickflip: 028be6206d00abccf1a3a726e7472852c7199edd
   Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
   OWS3Client: d8d15def89a7faed7343d6a7d1e6f24bdddc92a5
   SDWebImage: 7eb273e54ca8a2e506ad9bd5e80c35b2a4d7c95e
