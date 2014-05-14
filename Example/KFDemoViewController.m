@@ -118,7 +118,7 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
                                             NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0]};
     [self.navigationController.navigationBar setTitleTextAttributes:attributes];
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.71 green:0.164 blue:0.71 alpha:1.0];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:71/255.0f green:164/255.0f blue:71/255.0f alpha:1.0f];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self setNeedsStatusBarAppearanceUpdate];
 }
