@@ -30,6 +30,10 @@ You'll need to [sign up](https://kickflip.io), make a new app, and then put your
 
 	#define KICKFLIP_API_KEY @"Client ID from kickflip.io"
 	#define KICKFLIP_API_SECRET @"Client Secret from kickflip.io"
+	
+## Documentation
+
+For a closer look at what you do with Kickflip, check out our [iOS Documentation](https://github.com/Kickflip/kickflip-docs/tree/master/ios) and [iOS API Reference](http://cocoadocs.org/docsets/Kickflip/). We also have some [tutorials](https://github.com/Kickflip/kickflip-docs) to help you get started.
 
 ## License
 
