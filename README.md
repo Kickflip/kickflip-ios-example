@@ -24,6 +24,8 @@ Grab the source code, and then update the dependencies.
     
 If you would like to make modifications to the core SDK, you can integrate the SDK as a submodule as well (check the `Podfile` for more info).
 
+As with all projects that depend on Cocoapods, make sure to open the `Kickflip.xcworkspace` file, not the .xcodeproj file.
+
 ## KFSecrets.h
 
 You'll need to [sign up](https://kickflip.io), make a new app, and then put your API keys from  and put them in a file called `KFSecrets.h` with the following contents:
