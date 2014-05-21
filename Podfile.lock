@@ -27,9 +27,9 @@ PODS:
     - SDWebImage (~> 3.6)
     - SSKeychain (~> 1.2)
     - UIView+AutoLayout (~> 1.3)
-  - Mantle (1.4.1):
+  - Mantle (1.5):
     - Mantle/extobjc
-  - Mantle/extobjc (1.4.1)
+  - Mantle/extobjc (1.5)
   - OWS3Client (1.0):
     - AWSiOSSDK/S3 (~> 1.7)
   - SDWebImage (3.6):
@@ -44,29 +44,36 @@ PODS:
     - CocoaLumberjack (~> 1.6.3)
 
 DEPENDENCIES:
-  - Kickflip (~> 1.0.0)
+  - Kickflip (from `Submodules/kickflip-ios-sdk/Kickflip.podspec`)
+  - OWS3Client (from `Submodules/OWS3Client/OWS3Client.podspec`)
   - SSPullToRefresh (~> 1.2)
   - UIAlertView-Blocks (~> 1.0)
   - VTAcknowledgementsViewController (~> 0.10)
   - YapDatabase (~> 2.4)
 
-SPEC CHECKSUMS:
-  AFNetworking: e403d4333a4e1956cb3fe42364c3c879f820c9a0
-  AFOAuth2Client: 579d6f298b0047dfd5a6eec6ab5b28c01f6b4547
-  AWSiOSSDK: dcf83bfeea698f5c750bb1814a5081d46ffa512f
-  CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
-  FFmpeg: 296428c7b7ca243d1a080f0bde88cbb9ab36617d
-  FFmpegWrapper: 04ffe48c03138bd47414fa2e495d32c6031ff6d3
-  FormatterKit: 612f56cb00bcda20d8559a2b9a9e6ed9251b9752
-  Kickflip: 028be6206d00abccf1a3a726e7472852c7199edd
-  Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
-  OWS3Client: d8d15def89a7faed7343d6a7d1e6f24bdddc92a5
-  SDWebImage: 7eb273e54ca8a2e506ad9bd5e80c35b2a4d7c95e
-  SSKeychain: 3d0b76c87e7b062a7ad1631a825fddec84367d44
-  SSPullToRefresh: ecdc6efdee5322bba8b57dc77c1263ef6b4170bf
-  UIAlertView-Blocks: f7be28a08e85ec21143951ec6797ca6474faf563
-  UIView+AutoLayout: 43373a18797954fd8ee3b1423af364f1b80a2af8
-  VTAcknowledgementsViewController: 76b8edcea89b58b7be15876aaa5aba7fa8b221d7
-  YapDatabase: 96c3aed68fe5087d596a4b400087b861e43c93d3
+EXTERNAL SOURCES:
+  Kickflip:
+    :path: Submodules/kickflip-ios-sdk/Kickflip.podspec
+  OWS3Client:
+    :path: Submodules/OWS3Client/OWS3Client.podspec
 
-COCOAPODS: 0.32.1
+SPEC CHECKSUMS:
+  AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
+  AFOAuth2Client: 4f05d29e0a26c7ddf529dd7c4480af6ee1e982c6
+  AWSiOSSDK: db382a716be4ce2b2022fa5f0da275c43648d0c7
+  CocoaLumberjack: 9d198d6e19909b3b113a38c5f06f7bb8eedd0427
+  FFmpeg: 7e37c1efa4206e68c225ec0d73b8e3373d537c2a
+  FFmpegWrapper: 9564268abcc9660ec5463adbe4b5e01f52b6fdd3
+  FormatterKit: f744aa7928003eba8317d6fd6998414fbc78f7a5
+  Kickflip: 83f975ec43ea19657bfaa1a4aea37d4e020d2472
+  Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
+  OWS3Client: 88e654bf7aa6331dbab1f5ff8cded6e63dd2660b
+  SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
+  SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
+  SSPullToRefresh: bb513a1ccbf08fdd67e4139bc1bbe3fc2ed34228
+  UIAlertView-Blocks: f3271e84372beb97aea115cd1fb26ae66457f12f
+  UIView+AutoLayout: dc24ec6114498617510af759148a05b957af1b38
+  VTAcknowledgementsViewController: dc41d1f26847ea1c25bb0c8e8b69a6310d847a44
+  YapDatabase: ed37dcf64c8189dbf894baa8dc1578bd678b4fc9
+
+COCOAPODS: 0.33.1

@@ -1,3 +1,6 @@
 [submodule "Submodules/kickflip-ios-sdk"]
 	path = Submodules/kickflip-ios-sdk
 	url = git@github.com:Kickflip/kickflip-ios-sdk.git
+[submodule "Submodules/OWS3Client"]
+	path = Submodules/OWS3Client
+	url = git@github.com:OpenWatch/OWS3Client.git
