@@ -20,7 +20,7 @@ Grab the source code, and then update the dependencies.
 	$ git clone git@github.com:Kickflip/kickflip-ios-example.git
     $ cd kickflip-ios-example
     $ git submodule update --init
-    $ pod
+    $ pod install
     
 If you would like to make modifications to the core SDK, you can integrate the SDK as a submodule as well (check the `Podfile` for more info).
 
