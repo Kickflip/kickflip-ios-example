@@ -37,6 +37,9 @@
 		D945AF6C189874B80026F697 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF6A189874AB0026F697 /* SystemConfiguration.framework */; };
 		D945AF6E189874C80026F697 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF6D189874C70026F697 /* MobileCoreServices.framework */; };
 		D9F0C38718F75C5500DCED85 /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9F0C38618F75C5500DCED85 /* Pods-acknowledgements.plist */; };
+		D9FFDAB4194BB4F300D76CFF /* KFOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FFDAB2194BB4F300D76CFF /* KFOnboardingViewController.m */; };
+		D9FFDAB5194BB4F300D76CFF /* KFOnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FFDAB3194BB4F300D76CFF /* KFOnboardingViewController.xib */; };
+		D9FFDAB8194BC7B300D76CFF /* KFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FFDAB7194BC7B300D76CFF /* KFConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,11 @@
 		D99912CE18984D3F00BFCBA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D99912DC18984D3F00BFCBA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D9F0C38618F75C5500DCED85 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-acknowledgements.plist"; path = "Pods/Pods-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
+		D9FFDAB1194BB4F300D76CFF /* KFOnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFOnboardingViewController.h; sourceTree = "<group>"; };
+		D9FFDAB2194BB4F300D76CFF /* KFOnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFOnboardingViewController.m; sourceTree = "<group>"; };
+		D9FFDAB3194BB4F300D76CFF /* KFOnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KFOnboardingViewController.xib; sourceTree = "<group>"; };
+		D9FFDAB6194BC7B300D76CFF /* KFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFConstants.h; sourceTree = "<group>"; };
+		D9FFDAB7194BC7B300D76CFF /* KFConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,11 @@
 		D945ADCE189854000026F697 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				D9FFDAB6194BC7B300D76CFF /* KFConstants.h */,
+				D9FFDAB7194BC7B300D76CFF /* KFConstants.m */,
+				D9FFDAB1194BB4F300D76CFF /* KFOnboardingViewController.h */,
+				D9FFDAB2194BB4F300D76CFF /* KFOnboardingViewController.m */,
+				D9FFDAB3194BB4F300D76CFF /* KFOnboardingViewController.xib */,
 				D945AF3418985A5E0026F697 /* KFSecrets.h */,
 				D945ADCF189854000026F697 /* InfoPlist.strings */,
 				D945ADD1189854000026F697 /* Images.xcassets */,
@@ -197,6 +210,7 @@
 			files = (
 				D9F0C38718F75C5500DCED85 /* Pods-acknowledgements.plist in Resources */,
 				D945ADD7189854000026F697 /* InfoPlist.strings in Resources */,
+				D9FFDAB5194BB4F300D76CFF /* KFOnboardingViewController.xib in Resources */,
 				D945ADD8189854000026F697 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,7 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D945ADDB189854000026F697 /* main.m in Sources */,
+				D9FFDAB8194BC7B300D76CFF /* KFConstants.m in Sources */,
 				D945AF411898635A0026F697 /* KFDemoViewController.m in Sources */,
+				D9FFDAB4194BB4F300D76CFF /* KFOnboardingViewController.m in Sources */,
 				D945ADD9189854000026F697 /* KFAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +444,7 @@
 				D9F50E0D18FC956700A71C1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

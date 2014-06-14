@@ -19,6 +19,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "UIActionSheet+Blocks.h"
 #import "VTAcknowledgementsViewController.h"
+#import "KFOnboardingViewController.h"
+#import "KFConstants.h"
 
 static NSString * const kKFStreamView = @"kKFStreamView";
 static NSString * const kKFStreamsGroup = @"kKFStreamsGroup";
@@ -252,6 +254,14 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self refreshStreams];
+    
+    BOOL hasCompletedOnboarding = [[[NSUserDefaults standardUserDefaults] objectForKey:KFHasCompletedOnboardingKey] boolValue];
+    
+    if (!hasCompletedOnboarding) {
+        KFOnboardingViewController *onboardingViewController = [[KFOnboardingViewController alloc] initWithNibName:NSStringFromClass([KFOnboardingViewController class]) bundle:nil];
+        onboardingViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:onboardingViewController animated:NO completion:nil];
+    }
 }
 
 - (void) refreshStreams {

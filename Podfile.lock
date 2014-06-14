@@ -5,6 +5,7 @@ PODS:
   - AWSiOSSDK/Runtime (1.7.1)
   - AWSiOSSDK/S3 (1.7.1):
     - AWSiOSSDK/Runtime
+  - BButton (4.0.1)
   - CocoaLumberjack (1.9.0):
     - CocoaLumberjack/Extensions
   - CocoaLumberjack/Core (1.9.0)
@@ -15,7 +16,7 @@ PODS:
   - FFmpeg/precompiled (2.2)
   - FFmpegWrapper (1.0):
     - FFmpeg (~> 2.2)
-  - FormatterKit/TimeIntervalFormatter (1.4.3)
+  - FormatterKit/TimeIntervalFormatter (1.5.0)
   - Kickflip (1.1):
     - AFNetworking (~> 1.3)
     - AFOAuth2Client (~> 0.1)
@@ -42,6 +43,7 @@ PODS:
     - CocoaLumberjack (~> 1.6.3)
 
 DEPENDENCIES:
+  - BButton (~> 4.0)
   - Kickflip (~> 1.1)
   - SSPullToRefresh (~> 1.2)
   - UIAlertView-Blocks (~> 1.0)
@@ -52,10 +54,11 @@ SPEC CHECKSUMS:
   AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
   AFOAuth2Client: 4f05d29e0a26c7ddf529dd7c4480af6ee1e982c6
   AWSiOSSDK: db382a716be4ce2b2022fa5f0da275c43648d0c7
+  BButton: 396a5e59648e3f687b7d8201b88ebdbad6e36b59
   CocoaLumberjack: 5766cdd1d0a24bcf15a133c6023747346bf786dd
   FFmpeg: 7e37c1efa4206e68c225ec0d73b8e3373d537c2a
   FFmpegWrapper: 9564268abcc9660ec5463adbe4b5e01f52b6fdd3
-  FormatterKit: f744aa7928003eba8317d6fd6998414fbc78f7a5
+  FormatterKit: 9f17511b65226c93c89300e53f9e88194459ff67
   Kickflip: e992fd980b6d500e03db6d181a76a536ec2e24dc
   Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
   SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
