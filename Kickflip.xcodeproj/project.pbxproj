@@ -36,15 +36,15 @@
 		D945AF68189873900026F697 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF67189873900026F697 /* libc++.dylib */; };
 		D945AF6C189874B80026F697 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF6A189874AB0026F697 /* SystemConfiguration.framework */; };
 		D945AF6E189874C80026F697 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945AF6D189874C70026F697 /* MobileCoreServices.framework */; };
-		D9F0C38718F75C5500DCED85 /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9F0C38618F75C5500DCED85 /* Pods-acknowledgements.plist */; };
 		D9FFDAB4194BB4F300D76CFF /* KFOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FFDAB2194BB4F300D76CFF /* KFOnboardingViewController.m */; };
 		D9FFDAB5194BB4F300D76CFF /* KFOnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FFDAB3194BB4F300D76CFF /* KFOnboardingViewController.xib */; };
 		D9FFDAB8194BC7B300D76CFF /* KFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FFDAB7194BC7B300D76CFF /* KFConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		49767AF7DBF441F8BD1E00E7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		1491D2D979AA56461FB4ECBB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D5C3B6210219445A92F3D20B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D824578567D5C73BC350F434 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D945ADA3189853A80026F697 /* Kickflip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickflip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D945ADA5189853A80026F697 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D945ADD0189854000026F697 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -66,7 +66,6 @@
 		D945AF6D189874C70026F697 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D99912CE18984D3F00BFCBA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D99912DC18984D3F00BFCBA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D9F0C38618F75C5500DCED85 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-acknowledgements.plist"; path = "Pods/Pods-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		D9FFDAB1194BB4F300D76CFF /* KFOnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFOnboardingViewController.h; sourceTree = "<group>"; };
 		D9FFDAB2194BB4F300D76CFF /* KFOnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFOnboardingViewController.m; sourceTree = "<group>"; };
 		D9FFDAB3194BB4F300D76CFF /* KFOnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KFOnboardingViewController.xib; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 				D945ADD3189854000026F697 /* KFAppDelegate.m */,
 				D945AF3F1898635A0026F697 /* KFDemoViewController.h */,
 				D945AF401898635A0026F697 /* KFDemoViewController.m */,
-				D9F0C38618F75C5500DCED85 /* Pods-acknowledgements.plist */,
 				D945ADD4189854000026F697 /* Kickflip-Info.plist */,
 				D945ADD5189854000026F697 /* Kickflip-Prefix.pch */,
 				D945ADD6189854000026F697 /* main.m */,
@@ -124,7 +122,7 @@
 				D945ADCE189854000026F697 /* Example */,
 				D99912CD18984D3F00BFCBA4 /* Frameworks */,
 				D99912CC18984D3F00BFCBA4 /* Products */,
-				49767AF7DBF441F8BD1E00E7 /* Pods.xcconfig */,
+				ED4123747B51A1D2587A7240 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +150,15 @@
 				D5C3B6210219445A92F3D20B /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED4123747B51A1D2587A7240 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D824578567D5C73BC350F434 /* Pods.debug.xcconfig */,
+				1491D2D979AA56461FB4ECBB /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +215,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9F0C38718F75C5500DCED85 /* Pods-acknowledgements.plist in Resources */,
 				D945ADD7189854000026F697 /* InfoPlist.strings in Resources */,
 				D9FFDAB5194BB4F300D76CFF /* KFOnboardingViewController.xib in Resources */,
 				D945ADD8189854000026F697 /* Images.xcassets in Resources */,
@@ -243,7 +249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD523A8DB5414023AF7AF9A6 /* Check Pods Manifest.lock */ = {
@@ -292,7 +298,7 @@
 /* Begin XCBuildConfiguration section */
 		D945ADC9189853A90026F697 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49767AF7DBF441F8BD1E00E7 /* Pods.xcconfig */;
+			baseConfigurationReference = D824578567D5C73BC350F434 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -316,7 +322,7 @@
 		};
 		D945ADCA189853A90026F697 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49767AF7DBF441F8BD1E00E7 /* Pods.xcconfig */;
+			baseConfigurationReference = 1491D2D979AA56461FB4ECBB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

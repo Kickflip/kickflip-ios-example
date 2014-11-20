@@ -1,72 +1,105 @@
 PODS:
-  - AFNetworking (1.3.4)
-  - AFOAuth2Client (0.1.2):
-    - AFNetworking (~> 1.3)
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - AFOAuth2Client (0.1.1):
+    - AFNetworking (~> 2.0)
   - AWSiOSSDK/Runtime (1.7.1)
   - AWSiOSSDK/S3 (1.7.1):
     - AWSiOSSDK/Runtime
   - BButton (4.0.1)
-  - CocoaLumberjack (1.9.0):
+  - CocoaLumberjack (2.0.0-beta3):
+    - CocoaLumberjack/Default
     - CocoaLumberjack/Extensions
-  - CocoaLumberjack/Core (1.9.0)
-  - CocoaLumberjack/Extensions (1.9.0):
+  - CocoaLumberjack/Core (2.0.0-beta3)
+  - CocoaLumberjack/Default (2.0.0-beta3):
     - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.0.0-beta3):
+    - CocoaLumberjack/Default
   - FFmpeg (2.2):
     - FFmpeg/precompiled
   - FFmpeg/precompiled (2.2)
   - FFmpegWrapper (1.0):
     - FFmpeg (~> 2.2)
-  - FormatterKit/TimeIntervalFormatter (1.5.0)
+  - FormatterKit/TimeIntervalFormatter (1.7.2)
   - Kickflip (1.1):
-    - AFNetworking (~> 1.3)
-    - AFOAuth2Client (~> 0.1)
-    - AWSiOSSDK/S3 (~> 1.7)
-    - CocoaLumberjack (~> 1.0)
-    - FFmpegWrapper (~> 1.0)
-    - FormatterKit/TimeIntervalFormatter (~> 1.4)
-    - Mantle (~> 1.4)
-    - SDWebImage (~> 3.6)
-    - SSKeychain (~> 1.2)
-    - UIView+AutoLayout (~> 1.3)
-  - Mantle (1.5):
+    - AFNetworking
+    - AWSiOSSDK/S3
+    - CocoaLumberjack
+    - FFmpegWrapper
+    - FormatterKit/TimeIntervalFormatter
+    - Mantle
+    - SDWebImage
+    - SSKeychain
+    - UIView+AutoLayout
+  - Mantle (1.5.1):
     - Mantle/extobjc
-  - Mantle/extobjc (1.5)
-  - SDWebImage (3.6):
+  - Mantle/extobjc (1.5.1)
+  - SDWebImage (3.7.1):
     - SDWebImage/Core
-  - SDWebImage/Core (3.6)
+  - SDWebImage/Core (3.7.1)
   - SSKeychain (1.2.2)
   - SSPullToRefresh (1.2.0)
   - UIAlertView-Blocks (1.0)
-  - UIView+AutoLayout (1.3.0)
-  - VTAcknowledgementsViewController (0.10)
-  - YapDatabase (2.4.1):
-    - CocoaLumberjack (~> 1.6.3)
+  - UIView+AutoLayout (2.0.1)
+  - VTAcknowledgementsViewController (0.12)
+  - YapDatabase (2.5.3):
+    - YapDatabase/standard
+  - YapDatabase/common (2.5.3):
+    - CocoaLumberjack (~> 1)
+  - YapDatabase/standard (2.5.3):
+    - YapDatabase/common
 
 DEPENDENCIES:
+  - AFOAuth2Client (from `git@github.com:mlwelles/AFOAuth2Client.git`)
   - BButton (~> 4.0)
-  - Kickflip (~> 1.1)
+  - Kickflip (from `https://github.com/ijameelkhan/kickflip-ios-sdk`)
   - SSPullToRefresh (~> 1.2)
   - UIAlertView-Blocks (~> 1.0)
   - VTAcknowledgementsViewController (~> 0.10)
   - YapDatabase (~> 2.4)
 
+EXTERNAL SOURCES:
+  AFOAuth2Client:
+    :git: git@github.com:mlwelles/AFOAuth2Client.git
+  Kickflip:
+    :git: https://github.com/ijameelkhan/kickflip-ios-sdk
+
 SPEC CHECKSUMS:
-  AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
-  AFOAuth2Client: 4f05d29e0a26c7ddf529dd7c4480af6ee1e982c6
-  AWSiOSSDK: db382a716be4ce2b2022fa5f0da275c43648d0c7
+  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  AFOAuth2Client: 05536bd4175add72e7efcb6b749d4e9685ed02f7
+  AWSiOSSDK: a8b11ab4437620b3f5e33e7c090ec393cfd33301
   BButton: 396a5e59648e3f687b7d8201b88ebdbad6e36b59
-  CocoaLumberjack: 5766cdd1d0a24bcf15a133c6023747346bf786dd
+  CocoaLumberjack: 55c22a2b8bde7a29c568ab4015b5874216524d70
   FFmpeg: 7e37c1efa4206e68c225ec0d73b8e3373d537c2a
   FFmpegWrapper: 9564268abcc9660ec5463adbe4b5e01f52b6fdd3
-  FormatterKit: 9f17511b65226c93c89300e53f9e88194459ff67
-  Kickflip: e992fd980b6d500e03db6d181a76a536ec2e24dc
-  Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
-  SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
+  FormatterKit: 230f6ae7a6e9ac468cb09b3ac2b7524effc8daaa
+  Kickflip: 7eee139abd268d71318f9835017d583cbba781c3
+  Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   SSPullToRefresh: bb513a1ccbf08fdd67e4139bc1bbe3fc2ed34228
   UIAlertView-Blocks: f3271e84372beb97aea115cd1fb26ae66457f12f
-  UIView+AutoLayout: dc24ec6114498617510af759148a05b957af1b38
-  VTAcknowledgementsViewController: dc41d1f26847ea1c25bb0c8e8b69a6310d847a44
-  YapDatabase: ed37dcf64c8189dbf894baa8dc1578bd678b4fc9
+  UIView+AutoLayout: d876c583c3dec28b5c3916175ea4b6ad70a8be34
+  VTAcknowledgementsViewController: 5cdab8f3d003680b8fbdfcce90fcab92cee962a6
+  YapDatabase: 096e860167b04e629b88bea33dfb7a4153279bb0
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.34.4
