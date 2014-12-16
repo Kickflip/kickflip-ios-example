@@ -5,9 +5,8 @@ platform :ios, "8.0"
 #pod 'Kickflip', :path => 'Submodules/kickflip-ios-sdk/Kickflip.podspec'
 
 
-pod "AFOAuth2Client", :git => "git@github.com:mlwelles/AFOAuth2Client.git"
-pod  "Kickflip" , :git => "https://github.com/ijameelkhan/kickflip-ios-sdk"
-pod 'YapDatabase', '~> 2.4'
+pod 'Kickflip' , '~> 1.2'
+pod 'YapDatabase', '~> 2.5'
 pod 'SSPullToRefresh', '~> 1.2'
 pod 'UIAlertView-Blocks', '~> 1.0'
 pod 'VTAcknowledgementsViewController', '~> 0.10'

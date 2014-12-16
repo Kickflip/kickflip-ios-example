@@ -13,7 +13,7 @@
 #import "KFUser.h"
 #import "YapDatabase.h"
 #import "YapDatabaseView.h"
-#import "UIView+AutoLayout.h"
+#import "PureLayout.h"
 #import "KFDateUtils.h"
 #import "KFStreamTableViewCell.h"
 #import <MediaPlayer/MediaPlayer.h>
@@ -140,7 +140,7 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
 
 - (void) infoButtonPressed:(id)sender {
     VTAcknowledgementsViewController *viewController = [VTAcknowledgementsViewController acknowledgementsViewController];
-    viewController.headerText = NSLocalizedString(@"We love open source software.", nil); // optional
+    viewController.headerText = NSLocalizedString(@"Kickflip ❤ Open Source", nil); // optional
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

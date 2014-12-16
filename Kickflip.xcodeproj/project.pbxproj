@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		4BA8413B7CA949B0A7A2AF9F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C3B6210219445A92F3D20B /* libPods.a */; };
+		D925AD7B1A3FD1D7001A1C58 /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D925AD7A1A3FD1D7001A1C58 /* Pods-acknowledgements.plist */; };
 		D945ADA4189853A80026F697 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99912CE18984D3F00BFCBA4 /* Foundation.framework */; };
 		D945ADA6189853A80026F697 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D945ADA5189853A80026F697 /* CoreGraphics.framework */; };
 		D945ADD7189854000026F697 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D945ADCF189854000026F697 /* InfoPlist.strings */; };
@@ -45,6 +46,7 @@
 		1491D2D979AA56461FB4ECBB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D5C3B6210219445A92F3D20B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D824578567D5C73BC350F434 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D925AD7A1A3FD1D7001A1C58 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-acknowledgements.plist"; path = "Pods/Target Support Files/Pods/Pods-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		D945ADA3189853A80026F697 /* Kickflip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickflip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D945ADA5189853A80026F697 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D945ADD0189854000026F697 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				D945ADD2189854000026F697 /* KFAppDelegate.h */,
 				D945ADD3189854000026F697 /* KFAppDelegate.m */,
 				D945AF3F1898635A0026F697 /* KFDemoViewController.h */,
+				D925AD7A1A3FD1D7001A1C58 /* Pods-acknowledgements.plist */,
 				D945AF401898635A0026F697 /* KFDemoViewController.m */,
 				D945ADD4189854000026F697 /* Kickflip-Info.plist */,
 				D945ADD5189854000026F697 /* Kickflip-Prefix.pch */,
@@ -218,6 +221,7 @@
 				D945ADD7189854000026F697 /* InfoPlist.strings in Resources */,
 				D9FFDAB5194BB4F300D76CFF /* KFOnboardingViewController.xib in Resources */,
 				D945ADD8189854000026F697 /* Images.xcassets in Resources */,
+				D925AD7B1A3FD1D7001A1C58 /* Pods-acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,105 +1,96 @@
 PODS:
-  - AFNetworking (2.4.1):
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.4.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.4.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.4.1)
-  - AFNetworking/Security (2.4.1)
-  - AFNetworking/Serialization (2.4.1)
-  - AFNetworking/UIKit (2.4.1):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-  - AFOAuth2Client (0.1.1):
-    - AFNetworking (~> 2.0)
+  - AFOAuth2Manager (2.0.0):
+    - AFNetworking (~> 2.2)
   - AWSiOSSDK/Runtime (1.7.1)
   - AWSiOSSDK/S3 (1.7.1):
     - AWSiOSSDK/Runtime
-  - BButton (4.0.1)
-  - CocoaLumberjack (2.0.0-beta3):
-    - CocoaLumberjack/Default
-    - CocoaLumberjack/Extensions
-  - CocoaLumberjack/Core (2.0.0-beta3)
-  - CocoaLumberjack/Default (2.0.0-beta3):
+  - BButton (4.0.2)
+  - CocoaLumberjack (1.9.2):
+    - CocoaLumberjack/Extensions (= 1.9.2)
+  - CocoaLumberjack/Core (1.9.2)
+  - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.0-beta3):
-    - CocoaLumberjack/Default
   - FFmpeg (2.2):
-    - FFmpeg/precompiled
+    - FFmpeg/precompiled (= 2.2)
   - FFmpeg/precompiled (2.2)
   - FFmpegWrapper (1.0):
     - FFmpeg (~> 2.2)
-  - FormatterKit/TimeIntervalFormatter (1.7.2)
-  - Kickflip (1.1):
-    - AFNetworking
-    - AWSiOSSDK/S3
-    - CocoaLumberjack
-    - FFmpegWrapper
-    - FormatterKit/TimeIntervalFormatter
-    - Mantle
-    - SDWebImage
-    - SSKeychain
-    - UIView+AutoLayout
+  - FormatterKit/TimeIntervalFormatter (1.7.5)
+  - Kickflip (1.2):
+    - AFNetworking (~> 2.2)
+    - AFOAuth2Manager (~> 2.0)
+    - AWSiOSSDK/S3 (~> 1.7)
+    - CocoaLumberjack (~> 1.0)
+    - FFmpegWrapper (~> 1.0)
+    - FormatterKit/TimeIntervalFormatter (~> 1.4)
+    - Mantle (~> 1.4)
+    - PureLayout (~> 2.0)
+    - SDWebImage (~> 3.6)
+    - SSKeychain (~> 1.2)
   - Mantle (1.5.1):
-    - Mantle/extobjc
+    - Mantle/extobjc (= 1.5.1)
   - Mantle/extobjc (1.5.1)
+  - PureLayout (2.0.4)
   - SDWebImage (3.7.1):
-    - SDWebImage/Core
+    - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
   - SSKeychain (1.2.2)
-  - SSPullToRefresh (1.2.0)
+  - SSPullToRefresh (1.2.2)
   - UIAlertView-Blocks (1.0)
-  - UIView+AutoLayout (2.0.1)
   - VTAcknowledgementsViewController (0.12)
-  - YapDatabase (2.5.3):
-    - YapDatabase/standard
-  - YapDatabase/common (2.5.3):
+  - YapDatabase (2.5.4):
+    - YapDatabase/standard (= 2.5.4)
+  - YapDatabase/common (2.5.4):
     - CocoaLumberjack (~> 1)
-  - YapDatabase/standard (2.5.3):
+  - YapDatabase/standard (2.5.4):
     - YapDatabase/common
 
 DEPENDENCIES:
-  - AFOAuth2Client (from `git@github.com:mlwelles/AFOAuth2Client.git`)
   - BButton (~> 4.0)
-  - Kickflip (from `https://github.com/ijameelkhan/kickflip-ios-sdk`)
+  - Kickflip (~> 1.2)
   - SSPullToRefresh (~> 1.2)
   - UIAlertView-Blocks (~> 1.0)
   - VTAcknowledgementsViewController (~> 0.10)
-  - YapDatabase (~> 2.4)
-
-EXTERNAL SOURCES:
-  AFOAuth2Client:
-    :git: git@github.com:mlwelles/AFOAuth2Client.git
-  Kickflip:
-    :git: https://github.com/ijameelkhan/kickflip-ios-sdk
+  - YapDatabase (~> 2.5)
 
 SPEC CHECKSUMS:
-  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  AFOAuth2Client: 05536bd4175add72e7efcb6b749d4e9685ed02f7
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  AFOAuth2Manager: a7726957cbc14c229b5d5d648c934453b6bb55b0
   AWSiOSSDK: a8b11ab4437620b3f5e33e7c090ec393cfd33301
-  BButton: 396a5e59648e3f687b7d8201b88ebdbad6e36b59
-  CocoaLumberjack: 55c22a2b8bde7a29c568ab4015b5874216524d70
+  BButton: eab327e143be2730c81a22467cc016488a125162
+  CocoaLumberjack: 205769c032b5fef85b92472046bcc8b7e7c8a817
   FFmpeg: 7e37c1efa4206e68c225ec0d73b8e3373d537c2a
   FFmpegWrapper: 9564268abcc9660ec5463adbe4b5e01f52b6fdd3
-  FormatterKit: 230f6ae7a6e9ac468cb09b3ac2b7524effc8daaa
-  Kickflip: 7eee139abd268d71318f9835017d583cbba781c3
+  FormatterKit: 758bef4552d11454f0eb7e73669f81c225247904
+  Kickflip: 702f5b80a0b69e7e43ed314e86aadcdc0f5daceb
   Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
+  PureLayout: ddf4fedf7e2f5984f972bbd2205dda4fc3418347
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
-  SSPullToRefresh: bb513a1ccbf08fdd67e4139bc1bbe3fc2ed34228
+  SSPullToRefresh: da7acfb8e269acbd040be7f0b091824cda365a17
   UIAlertView-Blocks: f3271e84372beb97aea115cd1fb26ae66457f12f
-  UIView+AutoLayout: d876c583c3dec28b5c3916175ea4b6ad70a8be34
   VTAcknowledgementsViewController: 5cdab8f3d003680b8fbdfcce90fcab92cee962a6
-  YapDatabase: 096e860167b04e629b88bea33dfb7a4153279bb0
+  YapDatabase: c1d6912df1b4a160f7373ee7657d360e29bb00fd
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0
