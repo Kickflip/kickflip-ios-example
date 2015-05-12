@@ -53,7 +53,7 @@ PODS:
     - FFmpeg (~> 2.2)
   - FormatterKit/TimeIntervalFormatter (1.8.0)
   - GZIP (1.0.3)
-  - Kickflip (1.2):
+  - Kickflip (1.3):
     - AFNetworking (~> 2.2)
     - AFOAuth2Manager (~> 2.0)
     - AWSS3 (~> 2.1)
@@ -86,15 +86,11 @@ PODS:
 
 DEPENDENCIES:
   - BButton (~> 4.0)
-  - Kickflip (from `Submodules/kickflip-ios-sdk/Kickflip.podspec`)
+  - Kickflip (~> 1.3)
   - SSPullToRefresh (~> 1.2)
   - UIAlertView-Blocks (~> 1.0)
   - VTAcknowledgementsViewController (~> 0.10)
   - YapDatabase (~> 2.5)
-
-EXTERNAL SOURCES:
-  Kickflip:
-    :path: Submodules/kickflip-ios-sdk/Kickflip.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
@@ -108,7 +104,7 @@ SPEC CHECKSUMS:
   FFmpegWrapper: 9a932581137d17203e842ce942e171158336ae16
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
   GZIP: f0863fda354e8f83316508c0a2c7bbe385e39129
-  Kickflip: b0b198699cae0225fdd6d713507193a734a55939
+  Kickflip: 18b5cbec453592576185efe570e228eee7190387
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
