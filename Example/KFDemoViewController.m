@@ -73,14 +73,16 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
 }
 
 - (void) setupDatabaseView {
-    YapDatabaseViewBlockType groupingBlockType;
-    YapDatabaseViewGroupingWithObjectBlock groupingBlock;
+    YapDatabaseViewSorting *sorting = [YapDatabaseViewSorting withObjectBlock:^NSComparisonResult(NSString *group, NSString *collection1, NSString *key1, id object1, NSString *collection2, NSString *key2, id object2) {
+        if ([group isEqualToString:kKFStreamsGroup]) {
+            KFStream *stream1 = object1;
+            KFStream *stream2 = object2;
+            return [stream2.startDate compare:stream1.startDate];
+        }
+        return NSOrderedSame;
+    }];
     
-    YapDatabaseViewBlockType sortingBlockType;
-    YapDatabaseViewSortingWithObjectBlock sortingBlock;
-    
-    groupingBlockType = YapDatabaseViewBlockTypeWithObject;
-    groupingBlock = ^NSString *(NSString *collection, NSString *key, id object){
+    YapDatabaseViewGrouping *grouping = [YapDatabaseViewGrouping withObjectBlock:^NSString *(NSString *collection, NSString *key, id object) {
         if ([object isKindOfClass:[KFStream class]]) {
             KFStream *stream = object;
             // Hide streams without thumbnails for now
@@ -90,27 +92,11 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
             return kKFStreamsGroup;
         }
         return nil; // exclude from view
-    };
+    }];
     
-    sortingBlockType = YapDatabaseViewBlockTypeWithObject;
-    sortingBlock = ^NSComparisonResult(NSString *group, NSString *collection1, NSString *key1, id obj1,
-                     NSString *collection2, NSString *key2, id obj2){
-        if ([group isEqualToString:kKFStreamsGroup]) {
-            KFStream *stream1 = obj1;
-            KFStream *stream2 = obj2;
-            return [stream2.startDate compare:stream1.startDate];
-        }
-        return NSOrderedSame;
-    };
+    YapDatabaseView *databaseView = [[YapDatabaseView alloc] initWithGrouping:grouping sorting:sorting];
     
-    YapDatabaseView *databaseView =
-    [[YapDatabaseView alloc] initWithGroupingBlock:groupingBlock
-                                 groupingBlockType:groupingBlockType
-                                      sortingBlock:sortingBlock
-                                  sortingBlockType:sortingBlockType];
     [self.database registerExtension:databaseView withName:kKFStreamView];
-    
-
 }
 
 
@@ -285,9 +271,10 @@ static NSString * const kKFStreamsCollection = @"kKFStreamsCollection";
                 }
                 [transaction setObject:newStream forKey:stream.streamID inCollection:kKFStreamsCollection];
             }
-        } completionBlock:^{
+        } completionQueue:dispatch_get_main_queue()
+          completionBlock:^{
             [self.pullToRefreshView finishLoading];
-        } completionQueue:dispatch_get_main_queue()];
+        }];
     }];
 }
 
